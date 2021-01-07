@@ -8,6 +8,7 @@ import Button from 'elements/Button'
 import Section from "elements/Section"
 import Clients from "parts/Clients"
 import Feature from 'parts/Feature'
+import Footer from 'parts/Footer'
 
 import HeroImage from "assets/images/hero-image.png"
 import feature01 from 'assets/images/feature-tile-icon-01.svg'
@@ -144,7 +145,7 @@ export default function Homepage() {
 				</div>
 			</Section>
 
-			<Section className="pricing" isCenteredContent>
+			<Section className="pricing">
 				<div className="container">
 					<div className="pricing-inner section-inner has-top-divider">
 						<div className="section-header center-content">
@@ -199,6 +200,7 @@ export default function Homepage() {
 					</div>
 				</div>
 			</Section>
+			<Footer></Footer>
         </div>
     )
 }
