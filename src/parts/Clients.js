@@ -11,7 +11,7 @@ import Client05 from "assets/images/clients-05.svg"
 export default function Clients() {
     return (
         <Section className="clients">
-            <Fade bottom delay={1300}>
+            <Fade bottom delay={1000}>
                 <div className="container">
                     <div
                         className="clients-inner section-inner has-top-divider has-bottom-divider"
