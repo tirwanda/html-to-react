@@ -2,6 +2,9 @@ import React from 'react'
 import Fade from 'react-reveal/Fade'
 
 import Header from "parts/Header"
+import Card from 'elements/Card'
+import Lists from 'elements/Lists'
+import Button from 'elements/Button'
 import Section from "elements/Section"
 import Clients from "parts/Clients"
 import Feature from 'parts/Feature'
@@ -34,6 +37,45 @@ export default function Homepage() {
 		}
 	];
 	
+	const listPricing = [
+		{
+			price: 27,
+			curencySymbol: "$",
+			description: "Lorem ipsum is a common text",
+			features: [
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: false, content: "Excepteur sint occaecat velit"},
+				{isChecked: false, content: "Excepteur sint occaecat velit"}
+			]
+		},
+		{
+			price: 47,
+			curencySymbol: "$",
+			description: "Lorem ipsum is a common text",
+			features: [
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: false, content: "Excepteur sint occaecat velit"}
+			]
+		},
+		{
+			price: 67,
+			curencySymbol: "$",
+			description: "Lorem ipsum is a common text",
+			features: [
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: true, content: "Excepteur sint occaecat velit"},
+				{isChecked: true, content: "Excepteur sint occaecat velit"}
+			]
+		}
+	];
+
     return (
         <div className="body-warp">
             <Header></Header>
@@ -44,22 +86,21 @@ export default function Homepage() {
 							<div className="hero-content">
 								<Fade bottom delay={350}>
                                     <h1
-									    className="mt-0 mb-16"
-									    data-reveal-delay="200"
-								    >
-									    Landing template for startups
-								    </h1>
+										className="mt-0 mb-16"
+										data-reveal-delay="200">
+										Landing template for startups
+									</h1>
                                 </Fade>
 								<div className="container-xs">
 									<Fade bottom delay={700}>
                                         <p
-										    className="mt-0 mb-32"
-										    data-reveal-delay="400"
-									    >
-										    Our landing page template works on all
-										    devices, so you only have to set it up
-										    once, and get beautiful results forever.
-									    </p>
+											className="mt-0 mb-32"
+											data-reveal-delay="400"
+										>
+											Our landing page template works on all
+											devices, so you only have to set it up
+											once, and get beautiful results forever.
+										</p>
                                     </Fade>
 								</div>
 							</div>
@@ -69,14 +110,14 @@ export default function Homepage() {
                                     data-reveal-value="20px"
                                     data-reveal-delay="800"
                                 >
-								    <img
-									    className="has-shadow"
-									    src={HeroImage}
-									    alt="Hero"
-									    width="896"
-									    height="504"
-								    />
-							    </div>
+									<img
+										className="has-shadow"
+										src={HeroImage}
+										alt="Hero"
+										width="896"
+										height="504"
+									/>
+								</div>
                             </Fade>
 						</div>
 					</div>
@@ -96,6 +137,62 @@ export default function Homepage() {
 									delayInMS={index * 500} 
 									data={feature}>
 									</Feature>
+								)
+							}
+						</div>
+					</div>
+				</div>
+			</Section>
+
+			<Section className="pricing" isCenteredContent>
+				<div className="container">
+					<div className="pricing-inner section-inner has-top-divider">
+						<div className="section-header center-content">
+							<div className="container-xs">
+								<h2 className="mt-0 mb-16">
+									Simple, transarent pricing
+								</h2>
+								<p className="m-0">
+									Lorem ipsum is common placeholder text
+									used to demonstrate the graphic elements
+									of a document or visual presentation.
+								</p>
+							</div>
+						</div>
+						<div className="tiles-wrap">
+							{
+								listPricing.map((list, index) => 
+									<Card hasShadow>
+										<div className="pricing-item-content">
+											<div className="pricing-item-header pb-24 mb-24">
+												<div className="pricing-item-price mb-4"
+												>
+													<span className="pricing-item-price-currency h2">
+														{list.curencySymbol}
+													</span>
+													<span className="pricing-item-price-amount h1 pricing-switchable"
+														data-pricing-monthly="34"
+														data-pricing-yearly="27">
+															{list.price}
+													</span>
+												</div>
+												<div className="text-xs text-color-low">
+													{list.description}
+												</div>
+											</div>
+											<div className="pricing-item-features mb-40">
+												<div className="pricing-item-features-title h6 text-xs text-color-high mb-24">
+													What’s included
+												</div>
+												<Lists data={list.features} isSmall className="pricing-item-features-list mb-32">
+
+												</Lists>
+											</div>
+											<div class="pricing-item-cta mb-8">
+												<Button isPrimary isBlock>Start free trial</Button>
+											</div>
+										</div>
+									</Card>
 								)
 							}
 						</div>
